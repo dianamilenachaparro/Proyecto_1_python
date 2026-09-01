@@ -1,0 +1,18 @@
+[
+    {
+        "nombre_completo": "sss",
+        "edad": 33,
+        "especialidad": 1,
+        "documento": 33333,
+        "telefono": 33333,
+        "disponibilidad": 1
+    },
+    {
+        "nombre_completo": "ggg",
+        "edad": 33,
+        "especialidad": 1,
+        "documento": 555,
+        "telefono": 555,
+        "disponibilidad": 1
+    }
+]
