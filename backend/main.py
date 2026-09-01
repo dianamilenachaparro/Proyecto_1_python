@@ -83,6 +83,7 @@ def crear_usuario():
             print("Ingresa un dato válido")       
         except TypeError as e:
             print(f"Error: {e}")
+            print("Ingresa un dato válidooooooooooooooooooooooooo")
     
 
 
@@ -90,4 +91,4 @@ def crear_usuario():
 
 
 menu_principal()
-#clientes.cargar_usuarios() holaa
+#clientes.cargar_usuarios() holaa comooooo estasssss brooo FFFFFF
