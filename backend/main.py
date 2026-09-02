@@ -33,8 +33,7 @@ def menu_principal():
             print("\n -----> Ingresa un dato válido\n")
         except TypeError as e:
             print(f"Error: {e}")
-
-borrar_usuario_menu
+                            
 def crear_usuario():
     print("Vamos a crear un usuario.")
     print("Selecciona una de las opciones: ")
