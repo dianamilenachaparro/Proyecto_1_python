@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "fecha": "2026-09-03",
+        "jornada": "Tarde",
+        "tipo_vehiculo": "Moto",
+        "documento_alumno": 10000000,
+        "nombre_alumno": "DIANA CHAPARRO",
+        "documento_instructor": 123456,
+        "nombre_instructor": "martha",
+        "placa_vehiculo": "ASD12D",
+        "estado": "Realizada",
+        "asistencia": "Asisti\u00f3",
+        "observaciones": "MUY BUEN ALUMNO"
+    }
+]

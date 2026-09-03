@@ -44,3 +44,31 @@ def eliminar_cita(file, id_cita):
     else:
         print(f"No se encontró ninguna cita con el id {id_cita}.")
     return False
+
+def siguiente_id(file):
+    datos = cargar_citas(file)
+    if not datos:
+        return 1
+    return max(cita["id"] for cita in datos) + 1
+
+def instructor_ocupado(file, documento_instructor, fecha, jornada):
+    # Revisa si el instructor ya tiene una cita programada en esa fecha y jornada
+    datos = cargar_citas(file)
+    for cita in datos:
+        if (cita["documento_instructor"] == documento_instructor
+                and cita["fecha"] == fecha
+                and cita["jornada"] == jornada
+                and cita.get("estado") != "Cancelada"):
+            return True
+    return False
+
+def vehiculo_ocupado(file, placa, fecha, jornada):
+    # Revisa si el vehículo ya está asignado a otra cita en esa fecha y jornada
+    datos = cargar_citas(file)
+    for cita in datos:
+        if (cita.get("placa_vehiculo") == placa
+                and cita["fecha"] == fecha
+                and cita["jornada"] == jornada
+                and cita.get("estado") != "Cancelada"):
+            return True
+    return False

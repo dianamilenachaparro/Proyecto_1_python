@@ -1,0 +1,31 @@
+[
+    {
+        "nombre_completo": "DIANA CHAPARRO",
+        "edad": 25,
+        "documento": 10000000,
+        "telefono": 362595452,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Ambas"
+    },
+    {
+        "nombre_completo": "MARGARITA CHAPARRO",
+        "edad": 23,
+        "documento": 10000001,
+        "telefono": 333333333
+    },
+    {
+        "nombre_completo": "FLOR MACIAS",
+        "edad": 35,
+        "documento": 222222,
+        "telefono": 5555
+    },
+    {
+        "nombre_completo": "KATHERINE CARRE\u00d1O",
+        "edad": 33,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Carro",
+        "documento": 37895260,
+        "telefono": 31020202020,
+        "fecha_registro": "2026-09-02"
+    }
+]
