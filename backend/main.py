@@ -21,8 +21,8 @@ def menu_principal():
     while True:
         print()
         print("-" * 50)
-        print("1. Registro de usuario (cliente/instructor)")
-        print("2. Registrar vehículo")
+        print("1. Gestión de usuario (cliente/instructor)")
+        print("2. Gestión de vehículo")
         print("3. Gestión de citas")
         print("4. Historial de práctica")
         print("5. Salir")
@@ -39,6 +39,7 @@ def menu_principal():
                 agendar_cita()
             elif opcion ==4:
                 print("\nHistorial de prácticas")
+                consultar_citas()
             elif opcion ==5:
                 print("\nSaliendo...")
                 break
@@ -227,13 +228,13 @@ def crear_usuario():
                 print("\n -----> Ver listado de instructores\n")
                 datos = clientes.cargar_usuarios(DATOS_INSTRUCTORES)
                 for instructor in datos:
-                    print(f"Nombre: {instructor['nombre_completo']}, Edad: {instructor['edad']}, Sexo: {instructor.get('sexo', 'No especificado')}, Documento: {instructor['documento']}, Teléfono: {instructor['telefono']}, Disponibilidad: {instructor['disponibilidad']}")
+                    print(f"Nombre: {instructor['nombre_completo']}, Edad: {instructor['edad']}, Sexo: {instructor['sexo']}, Especialidad: {instructor['especialidad']}, Documento: {instructor['documento']}, Teléfono: {instructor['telefono']}, Disponibilidad: {instructor['disponibilidad']}")
                 print("\n -----> Fin del listado de instructores\n")
             elif opcion ==4:
                 print("\n -----> Ver listado de alumnos\n")
                 datos = clientes.cargar_usuarios(DATOS_USUARIOS)
                 for alumno in datos:
-                    print(f"Nombre: {alumno['nombre_completo']}, Edad: {alumno['edad']}, Sexo: {alumno.get('sexo', 'No especificado')}, Tipo de vehículo: {alumno.get('tipo_vehiculo', 'No especificado')}, Documento: {alumno['documento']}, Teléfono: {alumno['telefono']}, Fecha de registro: {alumno.get('fecha_registro', 'No especificado')}")
+                    print(f"Nombre: {alumno['nombre_completo']}, Edad: {alumno['edad']}, Sexo: {alumno['sexo']}, Tipo de vehículo: {alumno['tipo_vehiculo']}, Documento: {alumno['documento']}, Teléfono: {alumno['telefono']}, Fecha de registro: {alumno['fecha_registro']}")
                 print("\n -----> Fin del listado de alumnos\n")
             elif opcion ==5:
                 print("\n -----> Editar instructor\n")
@@ -241,7 +242,7 @@ def crear_usuario():
                 datos = clientes.cargar_usuarios(DATOS_INSTRUCTORES)
                 for i, instructor in enumerate(datos):
                     if instructor["documento"] == documento:
-                        print(f"Nombre: {instructor['nombre_completo']}, Edad: {instructor['edad']}, Sexo: {instructor.get('sexo', 'No especificado')}, Especialidad:{instructor['especialidad']}, Documento: {instructor['documento']}, Teléfono: {instructor['telefono']}, Disponibilidad: {instructor['disponibilidad']}")
+                        print(f"Nombre: {instructor['nombre_completo']}, Edad: {instructor['edad']}, Sexo: {instructor['sexo']}, Especialidad:{instructor['especialidad']}, Documento: {instructor['documento']}, Teléfono: {instructor['telefono']}, Disponibilidad: {instructor['disponibilidad']}")
 
                         nombre_completo = input("Ingrese el nuevo nombre completo (dejar en blanco para no cambiar): ")
                         edad = input("Ingrese la nueva edad (dejar en blanco para no cambiar): ")
@@ -330,7 +331,7 @@ def crear_usuario():
                         # Guardar los cambios en el archivo JSON
                         clientes.actualizar_usuario(DATOS_USUARIOS, documento, alumno)
             elif opcion ==7:
-                print("\nSaliendo...")
+                print("\nGracias por usar nuestro progrrama, hasta pronto!")
                 break
             else:
                 print("\n -----> Ingresa una opción válida\n")
@@ -407,14 +408,19 @@ def crear_vehiculo():
             print(f"Error: {e}")
             print("\n -----> Ingresa un dato válido")
 
+#Funciones auxiliares
+
 def _pedir_fecha(mensaje):
     while True:
+        #Se pide la fecha al usuario
         texto = input(mensaje)
         try:
+            #Se convierte la fecha a un objeto datetime y se valida que no sea anterior a la fecha actual
             fecha_dt = datetime.strptime(texto, "%Y-%m-%d").date()
             if fecha_dt < date.today():
                 print("\n -----> La fecha no puede ser anterior a hoy, intenta nuevamente\n")
                 continue
+            #Aplica el formato ISO 8601 a la fecha y la retorna (año-mes-día)
             return fecha_dt.isoformat()
         except ValueError:
             print("\n -----> Formato inválido, usa AAAA-MM-DD\n")
@@ -434,6 +440,7 @@ def _pedir_jornada():
                 print("\n -----> Opción inválida, intenta nuevamente\n")
         except ValueError:
             print("\n -----> Ingresa un dato válido\n")
+
 
 
 def _pedir_tipo_vehiculo():
@@ -616,12 +623,15 @@ def registrar_asistencia():
 
     while True:
         try:
-            asistio = int(input("¿El alumno asistió? (1. Sí, 2. No): "))
+            asistio = int(input("¿El alumno asistió? (1. Sí, 2. No, 3. Cancelada): "))
             if asistio == 1:
                 cita["asistencia"] = "Asistió"
                 break
             elif asistio == 2:
                 cita["asistencia"] = "No asistió"
+                break
+            elif asistio == 3:
+                cita["asistencia"] = "Cancelada"
                 break
             else:
                 print("\n -----> Opción inválida, intenta nuevamente\n")

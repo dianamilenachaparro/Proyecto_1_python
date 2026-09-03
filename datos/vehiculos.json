@@ -12,5 +12,47 @@
         "placa": "ASD12D",
         "tipo": "Moto",
         "estado": "Disponible"
+    },
+    {
+        "marca": "xtz",
+        "modelo": "150",
+        "placa": "wqee",
+        "tipo": "Moto",
+        "estado": "Disponible"
+    },
+    {
+        "marca": "Chevrolet",
+        "modelo": "Spark",
+        "placa": "FGH456",
+        "tipo": "Carro",
+        "estado": "Disponible"
+    },
+    {
+        "marca": "Renault",
+        "modelo": "Logan",
+        "placa": "JKL789",
+        "tipo": "Carro",
+        "estado": "Disponible"
+    },
+    {
+        "marca": "Honda",
+        "modelo": "CB160F",
+        "placa": "MNQ34E",
+        "tipo": "Moto",
+        "estado": "Disponible"
+    },
+    {
+        "marca": "Suzuki",
+        "modelo": "Gixxer",
+        "placa": "RST56F",
+        "tipo": "Moto",
+        "estado": "Disponible"
+    },
+    {
+        "marca": "Toyota",
+        "modelo": "Corolla",
+        "placa": "TUV901",
+        "tipo": "Carro",
+        "estado": "Disponible"
     }
 ]
