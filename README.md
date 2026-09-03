@@ -2,6 +2,12 @@
 
 Aplicación de consola en Python para gestionar una escuela de conducción: registro de instructores y alumnos, inventario de vehículos, y programación de citas de práctica con control de disponibilidad y asistencia.
 
+## Integrantes:
+Diana Milena Chaparro Macias
+Nicolas Archila
+Juan Sebastián Lesmes
+
+
 ## Índice
 
 - [Funcionalidades](#funcionalidades)
