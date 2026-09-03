@@ -1,0 +1,66 @@
+[
+    
+    {
+        "nombre_completo": "KATHERINE CARRE\u00d1O",
+        "edad": 33,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Carro",
+        "documento": 37895260,
+        "telefono": 31020202020,
+        "fecha_registro": "2026-09-02"
+    },
+    {
+        "nombre_completo": "nikol sarith",
+        "edad": 20,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Moto",
+        "documento": 1095700316,
+        "telefono": 3229508834,
+        "fecha_registro": "2026-09-03"
+    },
+    {
+        "nombre_completo": "Sofía Valentina Herrera",
+        "edad": 19,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Moto",
+        "documento": 1098765432,
+        "telefono": 3123456789,
+        "fecha_registro": "2026-09-03"
+    },
+    {
+        "nombre_completo": "Juan Pablo Restrepo",
+        "edad": 24,
+        "sexo": "Masculino",
+        "tipo_vehiculo": "Carro",
+        "documento": 1023456781,
+        "telefono": 3134567890,
+        "fecha_registro": "2026-09-03"
+    },
+    {
+        "nombre_completo": "Camila Andrea López",
+        "edad": 30,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Ambas",
+        "documento": 43567892,
+        "telefono": 3145678901,
+        "fecha_registro": "2026-09-03"
+    },
+    {
+        "nombre_completo": "Santiago Alejandro Morales",
+        "edad": 21,
+        "sexo": "Masculino",
+        "tipo_vehiculo": "Moto",
+        "documento": 1030456712,
+        "telefono": 3156789012,
+        "fecha_registro": "2026-09-03"
+    },
+    {
+        "nombre_completo": "Daniela Fernanda Castro",
+        "edad": 27,
+        "sexo": "Femenino",
+        "tipo_vehiculo": "Carro",
+        "documento": 79654321,
+        "telefono": 3167890123,
+        "fecha_registro": "2026-09-03"
+    }
+]
