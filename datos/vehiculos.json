@@ -1,12 +1,5 @@
 [
     {
-        "marca": "Hyundai",
-        "modelo": "Getz",
-        "placa": "AC123",
-        "tipo": "Carro",
-        "estado": "Disponible"
-    },
-    {
         "marca": "YAMAHA",
         "modelo": "AEROX",
         "placa": "ASD12D",
