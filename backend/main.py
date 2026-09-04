@@ -64,9 +64,11 @@ def crear_usuario():
         print("4. Ver listado de alumnos")
         print("5. Editar instructor")
         print("6. Editar alumno")
-        print("7. Salir")
+        print("7. Eliminar instructor")
+        print("8. Eliminar alumno")
+        print("9. Salir")
         print("-" * 50)
-        opcion = int(input("Selecciona una opción (1-7): "))
+        opcion = int(input("Selecciona una opción (1-9): "))
         try:
             if opcion ==1:
                 print("\n--- Crear Instructor ---")
@@ -331,6 +333,22 @@ def crear_usuario():
                         # Guardar los cambios en el archivo JSON
                         clientes.actualizar_usuario(DATOS_USUARIOS, documento, alumno)
             elif opcion ==7:
+                print("\n -----> Eliminar instructor\n")
+                documento = int(input("Ingrese el documento del instructor a eliminar: "))
+                if clientes.documento_existe(DATOS_INSTRUCTORES, documento):
+                    clientes.eliminar_usuario(DATOS_INSTRUCTORES, documento)
+                    print(f"\n -----> Instructor con documento {documento} eliminado correctamente\n")
+                else:
+                    print("\n -----> No existe un instructor registrado con ese documento\n")
+            elif opcion ==8:
+                print("\n -----> Eliminar alumno\n")
+                documento = int(input("Ingrese el documento del alumno a eliminar: "))
+                if clientes.documento_existe(DATOS_USUARIOS, documento):
+                    clientes.eliminar_usuario(DATOS_USUARIOS, documento)
+                    print(f"\n -----> Alumno con documento {documento} eliminado correctamente\n")
+                else:
+                    print("\n -----> No existe un alumno registrado con ese documento\n")
+            elif opcion ==9:
                 print("\nGracias por usar nuestro progrrama, hasta pronto!")
                 break
             else:
@@ -350,9 +368,10 @@ def crear_vehiculo():
         print("-" * 50)
         print("1. Crear Vehiculo")
         print("2. Ver listado de vehiculos")
-        print("3. Salir")
+        print("3. Eliminar vehiculo")
+        print("4. Salir")
         print("-" * 50)
-        opcion = int(input("Selecciona una opción (1-3): "))
+        opcion = int(input("Selecciona una opción (1-4): "))
         try:
             if opcion ==1:
                 print("\n--- Crear Vehiculo ---")
@@ -398,6 +417,13 @@ def crear_vehiculo():
                     print(f"Marca: {vehiculo['marca']}, Modelo: {vehiculo['modelo']}, Placa: {vehiculo['placa']}, Tipo: {vehiculo['tipo']}, Estado: {vehiculo['estado']}")
                 print("\n -----> Fin del listado de vehiculos\n")
             elif opcion ==3:
+                print("\n -----> Eliminar vehículo\n")
+                placa = input("Ingrese la placa del vehículo a eliminar: ")
+                if vehiculos.eliminar_vehiculo(DATOS_VEHICULOS, placa):
+                    print(f"\n -----> Vehículo con placa {placa} eliminado correctamente\n")
+                else:
+                    print(f"\n -----> No existe un vehículo registrado con la placa {placa}\n")
+            elif opcion ==4:
                 print("\nSaliendo...")
                 break
             else:
@@ -644,6 +670,20 @@ def registrar_asistencia():
     print(f"\n -----> Asistencia registrada para la cita #{id_cita}\n")
 
 
+def eliminar_cita_menu():
+    print("\n -----> Eliminar cita\n")
+    try:
+        id_cita = int(input("Ingrese el número de la cita a eliminar: "))
+    except ValueError:
+        print("\n -----> Ingresa un dato válido\n")
+        return
+
+    if citas.eliminar_cita(DATOS_CITAS, id_cita):
+        print(f"\n -----> Cita #{id_cita} eliminada correctamente\n")
+    else:
+        print(f"\n -----> No existe una cita con el número {id_cita}\n")
+
+
 def agendar_cita():
     print("\nVamos a agendar una cita.")
     while True:
@@ -652,9 +692,10 @@ def agendar_cita():
         print("1. Programar cita")
         print("2. Consultar citas (por cliente / por fecha)")
         print("3. Registrar asistencia y observaciones")
-        print("4. Salir")
+        print("4. Eliminar cita")
+        print("5. Salir")
         print("-" * 50)
-        opcion = int(input("Selecciona una opción (1-4): "))
+        opcion = int(input("Selecciona una opción (1-5): "))
         try:
             if opcion ==1:
                 programar_cita()
@@ -663,6 +704,8 @@ def agendar_cita():
             elif opcion ==3:
                 registrar_asistencia()
             elif opcion ==4:
+                eliminar_cita_menu()
+            elif opcion ==5:
                 print("\nSaliendo...")
                 break
             else:

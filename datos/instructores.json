@@ -79,14 +79,5 @@
         "documento": 1010293847,
         "telefono": 3112345566,
         "disponibilidad": "Manana"
-    },
-    {
-        "nombre_completo": "DIANA DOS",
-        "edad": 25,
-        "sexo": "Femenino",
-        "especialidad": "Carro",
-        "documento": 11112222,
-        "telefono": 312525252,
-        "disponibilidad": "Manana"
     }
 ]

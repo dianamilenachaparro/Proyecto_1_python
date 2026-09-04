@@ -14,20 +14,6 @@
         "observaciones": "MUY BUEN ALUMNO"
     },
     {
-        "id": 2,
-        "fecha": "2026-12-12",
-        "jornada": "Manana",
-        "tipo_vehiculo": "Moto",
-        "documento_alumno": 1095700316,
-        "nombre_alumno": "nikol sarith",
-        "documento_instructor": 132344,
-        "nombre_instructor": "felipe",
-        "placa_vehiculo": "wqee",
-        "estado": "Realizada",
-        "asistencia": "Asisti\u00f3",
-        "observaciones": ""
-    },
-    {
         "id": 3,
         "fecha": "2026-09-04",
         "jornada": "Manana",
@@ -65,6 +51,20 @@
         "documento_instructor": 1010293847,
         "nombre_instructor": "Juli\u00e1n Esteban Ram\u00edrez",
         "placa_vehiculo": "wqee",
+        "estado": "Programada",
+        "asistencia": null,
+        "observaciones": ""
+    },
+    {
+        "id": 6,
+        "fecha": "2026-09-20",
+        "jornada": "Tarde",
+        "tipo_vehiculo": "Carro",
+        "documento_alumno": 37895260,
+        "nombre_alumno": "KATHERINE CARRE\u00d1O",
+        "documento_instructor": 52789456,
+        "nombre_instructor": "Mariana Isabel Torres",
+        "placa_vehiculo": "AC123",
         "estado": "Programada",
         "asistencia": null,
         "observaciones": ""

@@ -20,22 +20,28 @@ Juan Sebastián Lesmes
 
 ## Funcionalidades
 
-### Gestión de usuarios (instructores y alumnos)
+### Gestión de usuario (instructores y alumnos)
 - Crear instructores (nombre, edad, sexo, especialidad, documento, teléfono, jornada de disponibilidad).
 - Crear alumnos (nombre, edad, sexo, tipo de vehículo, documento, teléfono, fecha de registro automática).
 - Listar instructores y alumnos.
 - Editar instructor o alumno por documento (deja en blanco un campo para no modificarlo).
+- Eliminar instructor o alumno por documento.
 - Validación de documento único y de rangos de edad (18-100 para instructores, 16-100 para alumnos).
 
-### Gestión de vehículos
+### Gestión de vehículo
 - Registrar vehículos (marca, modelo, placa, tipo, estado).
 - Listar vehículos con su estado de disponibilidad.
+- Eliminar vehículo por placa.
 - Validación de placa única.
 
 ### Gestión de citas
 - **Programar cita**: selecciona alumno, fecha, tipo de vehículo (autodetectado si el alumno no maneja "Ambas") y jornada; el sistema filtra automáticamente los instructores y vehículos disponibles para ese cruce de fecha/jornada/tipo y evita dobles reservas.
 - **Consultar citas**: por documento de alumno o por fecha.
-- **Registrar asistencia y observaciones**: marca cada cita como Asistió / No asistió / Cancelada y permite dejar observaciones; también sirve como historial de práctica.
+- **Registrar asistencia y observaciones**: marca cada cita como Asistió / No asistió / Cancelada y permite dejar observaciones.
+- **Eliminar cita** por número.
+
+### Historial de práctica
+Reutiliza la consulta de citas (opción 4 del menú principal) para revisar el historial de un alumno o de una fecha puntual.
 
 ## Estructura del proyecto
 
@@ -55,6 +61,7 @@ Proyecto_1_python/
 
 Las rutas a los archivos JSON se calculan a partir de la ubicación de `main.py`, así que la aplicación siempre lee y escribe en `datos/` sin importar desde qué carpeta se ejecute.
 
+
 ## Menú de la aplicación
 
 ```
@@ -66,16 +73,20 @@ Menú principal
 │   ├── 4. Ver listado de alumnos
 │   ├── 5. Editar instructor
 │   ├── 6. Editar alumno
-│   └── 7. Salir
+│   ├── 7. Eliminar instructor
+│   ├── 8. Eliminar alumno
+│   └── 9. Salir
 ├── 2. Gestión de vehículo
 │   ├── 1. Crear Vehículo
 │   ├── 2. Ver listado de vehículos
-│   └── 3. Salir
+│   ├── 3. Eliminar vehículo
+│   └── 4. Salir
 ├── 3. Gestión de citas
 │   ├── 1. Programar cita
 │   ├── 2. Consultar citas (por cliente / por fecha)
 │   ├── 3. Registrar asistencia y observaciones
-│   └── 4. Salir
+│   ├── 4. Eliminar cita
+│   └── 5. Salir
 ├── 4. Historial de práctica (consulta de citas)
 └── 5. Salir
 ```
@@ -144,3 +155,4 @@ Menú principal
 - **Tipo de vehículo del alumno**: si el alumno tiene un tipo fijo ("Moto" o "Carro"), la cita lo usa automáticamente sin volver a preguntarlo; solo se pregunta cuando el alumno es "Ambas".
 - **Fechas**: no se permite programar citas en fechas anteriores a hoy.
 - **Documentos y placas únicos**: no se puede registrar dos veces el mismo documento (instructor/alumno) ni la misma placa (vehículo).
+- **Eliminaciones**: instructor, alumno, vehículo y cita se buscan por su identificador (documento, placa o número de cita respectivamente) y se avisa si no existe ninguno con ese valor.
