@@ -1,8 +1,7 @@
 import os
 from datetime import date, datetime
-import clientes
-import vehiculos
-import citas
+import clientes, vehiculos, citas, evaluaciones
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATOS_DIR = os.path.join(BASE_DIR, "datos")
@@ -25,7 +24,8 @@ def menu_principal():
         print("2. Gestión de vehículo")
         print("3. Gestión de citas")
         print("4. Historial de práctica")
-        print("5. Salir")
+        print("5. Ingresar calificaciones")
+        print("6. Salir")
         print("-" * 50)
         try:
             opcion = int(input("Selecciona una opción (1-5): "))
@@ -41,6 +41,9 @@ def menu_principal():
                 print("\nHistorial de prácticas")
                 consultar_citas()
             elif opcion ==5:
+                print("\nIngresar calificaciones")
+                ingresar_calificaciones()
+            elif opcion ==6:
                 print("\nSaliendo...")
                 break
             else:
@@ -589,7 +592,7 @@ def programar_cita():
 def _imprimir_cita(cita):
     print(f"  #{cita['id']} | Fecha: {cita['fecha']} | Jornada: {cita['jornada']} | Vehículo: {cita['tipo_vehiculo']} ({cita.get('placa_vehiculo', 'No especificado')}) | "
           f"Alumno: {cita['nombre_alumno']} ({cita['documento_alumno']}) | Instructor: {cita['nombre_instructor']} | "
-          f"Estado: {cita['estado']} | Asistencia: {cita.get('asistencia') or 'Pendiente'} | Observaciones: {cita.get('observaciones') or '-'}")
+          f"Estado: {cita['estado']} | Asistencia: {cita.get('asistencia') or 'Pendiente'} | Observaciones: {cita.get('observaciones') or '-'} | Calificación: {cita.get('calificacion') or '-'}")
 
 
 def consultar_citas():
@@ -621,7 +624,6 @@ def consultar_citas():
     for cita in resultado:
         _imprimir_cita(cita)
     print()
-
 
 def registrar_asistencia():
     print("\n--- Registrar Asistencia y Observaciones ---")
@@ -716,4 +718,85 @@ def agendar_cita():
             print(f"Error: {e}")
             print("\n -----> Ingresa un dato válido")
 
+
+# ------------------------ PARCIAL -----------------------------
+
+
+def ingresar_calificaciones():
+
+    while True:
+        print()
+        print("-" * 50)
+        print("1. Registrar nueva evaluación")
+        print("2. Consultar evaluación de un alumno")
+        print("3. Calcular promedio general")
+        print("4. Salir")
+        print("-" * 50)
+        opcion = int(input("Selecciona una opción (1-4): "))
+        try:
+            if opcion == 1:
+                citas_calificar = citas.cargar_citas(DATOS_CITAS)
+                mostrar_alumnos_con_cita = [cita for cita in citas_calificar if cita.get("estado") == "Realizada" and cita.get("asistencia") == "Asistió"]
+                if not mostrar_alumnos_con_cita:
+                    print("\n -----> No hay alumnos con citas registradas, no se puede ingresar calificaciones\n")
+                    continue
+                print("\nAlumnos con citas asistidas:")
+                for alumno in mostrar_alumnos_con_cita:
+                    print(f"  Documento: {alumno['documento_alumno']}, Nombre: {alumno['nombre_alumno']}")
+                documento = _pedir_documento_alumno()
+                resultado = [c for c in mostrar_alumnos_con_cita if c["documento_alumno"] == documento]
+                print()
+                for cita in resultado:
+                    _imprimir_cita(cita)
+                print()
+                
+                print("\n -----> Seleccione el id de la cita que desea calificar")
+                while True:
+                    try:
+                        id_cita = int(input("Ingrese el número de la cita a calificar: "))
+                        
+                        if id_cita not in [cita['id'] for cita in resultado]:
+                            print("\n -----> No se encontró una cita con ese número para el alumno especificado\n")
+                            continue
+                        else:
+                            break
+                        
+                    except ValueError:
+                        print("\n -----> Ingresa un dato válido\n")
+                    
+                while True:    
+                    try:
+                        cita = citas.leer_cita_por_id(DATOS_CITAS, id_cita)
+                        calificacion = int(input("Ingrese la calificación del alumno (0-100): "))
+                        if 0 <= calificacion <= 100:
+                            cita['calificacion'] = calificacion
+                            citas.actualizar_cita(DATOS_CITAS, id_cita, cita)
+                            print(f"\n -----> Calificación ingresada para el alumno con documento {documento}\n")
+                            break
+                        else:
+                            print("\n -----> La calificación debe estar entre 0 y 100, intenta nuevamente\n")
+                            continue
+                    except ValueError:
+                        print("\n -----> Ingresa un dato válido")
+            elif opcion == 2:
+                documento = _pedir_documento_alumno()
+                
+                evaluaciones.consultar_calificaciones_por_alumno(DATOS_CITAS, documento)
+                
+            elif opcion == 3:
+                
+                evaluaciones.calcular_promedio_general(DATOS_CITAS)
+                
+            elif opcion == 4:
+                print("\nSaliendo...")
+                break
+            else:
+                print("\n -----> Ingresa una opción válida\n")
+        except ValueError:
+            print("\n -----> Ingresa un dato válido")
+        except TypeError as e:
+            print(f"Error: {e}")
+            print("\n -----> Ingresa un dato válido")  
+
+    
 menu_principal()

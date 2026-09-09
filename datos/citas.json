@@ -4,14 +4,15 @@
         "fecha": "2026-09-03",
         "jornada": "Tarde",
         "tipo_vehiculo": "Moto",
-        "documento_alumno": 10000000,
-        "nombre_alumno": "DIANA CHAPARRO",
+        "documento_alumno": 1098765432,
+        "nombre_alumno": "Sof\u00eda Valentina Herrera",
         "documento_instructor": 123456,
         "nombre_instructor": "martha",
         "placa_vehiculo": "ASD12D",
         "estado": "Realizada",
         "asistencia": "Asisti\u00f3",
-        "observaciones": "MUY BUEN ALUMNO"
+        "observaciones": "MUY BUEN ALUMNO",
+        "calificacion": 99
     },
     {
         "id": 3,
@@ -25,7 +26,8 @@
         "placa_vehiculo": "ASD12D",
         "estado": "Realizada",
         "asistencia": "Asisti\u00f3",
-        "observaciones": "SE ESTRELLO LA MOTO"
+        "observaciones": "SE ESTRELLO LA MOTO",
+        "calificacion": 50
     },
     {
         "id": 4,
@@ -39,7 +41,8 @@
         "placa_vehiculo": "wqee",
         "estado": "Realizada",
         "asistencia": "No asisti\u00f3",
-        "observaciones": ""
+        "observaciones": "",
+        "calificacion": null
     },
     {
         "id": 5,
@@ -51,9 +54,10 @@
         "documento_instructor": 1010293847,
         "nombre_instructor": "Juli\u00e1n Esteban Ram\u00edrez",
         "placa_vehiculo": "wqee",
-        "estado": "Programada",
-        "asistencia": null,
-        "observaciones": ""
+        "estado": "Realizada",
+        "asistencia": "Asisti\u00f3",
+        "observaciones": "Sin ninguna novedad",
+        "calificacion": 100
     },
     {
         "id": 6,
@@ -67,6 +71,7 @@
         "placa_vehiculo": "AC123",
         "estado": "Programada",
         "asistencia": null,
-        "observaciones": ""
+        "observaciones": "",
+        "calificacion": null
     }
 ]

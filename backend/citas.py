@@ -30,7 +30,7 @@ def actualizar_cita(file, id_cita, nuevo_dato):
             guardar_citas(file, datos)
             return True
         else:
-            print(f"No se encontró ninguna cita con el id {id_cita}.")
+            print("Buscando...")
     return False
 
 def eliminar_cita(file, id_cita):
@@ -72,3 +72,4 @@ def vehiculo_ocupado(file, placa, fecha, jornada):
                 and cita.get("estado") != "Cancelada"):
             return True
     return False
+
