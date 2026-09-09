@@ -4,10 +4,13 @@ Aplicación de consola en Python para gestionar una escuela de conducción: regi
 
 ## Integrantes:
 Diana Milena Chaparro Macias
-Nicolas Archila
-Juan Sebastián Lesmes
 
-
+## ACTUALIZACIÓN PARCIAL
+- Se añade evaluaciones.py para añadir las funciones relacionadas con las calificaciones de los alumnos.
+- Se añade la columna calificación al archivo citas.json
+- Se añade funcionalidad de agregar calificaciones de acuerdo a las citas ya asistidas.
+- Se pueden visualizar las calificaciones por documento de estudiante.
+- Se puede visualizar el promedio general del grupo.
 ## Índice
 
 - [Funcionalidades](#funcionalidades)
